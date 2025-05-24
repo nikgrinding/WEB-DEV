@@ -1,0 +1,21 @@
+p {
+    font-family: Arial;
+    font-size: 18px;
+    margin: 5px 0px;
+}
+.price {
+    font-size: 30px;
+}
+.currency {
+    color: #606060;
+    margin-left: 12px;
+}
+.hike {
+    color: green;
+}
+.time {
+    color: #606060;
+}
+.fall {
+    color: red;
+}

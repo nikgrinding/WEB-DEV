@@ -1,0 +1,13 @@
+p {
+    font-family: Arial;
+    margin: 0px
+}
+.line-1 {
+    font-size: 30px;
+    font-weight: bold;
+}
+.line-2 {
+    color: red;
+    font-style: italic;
+    margin-top: 5px;
+}

@@ -1,0 +1,22 @@
+.linkedin-apply-button {
+    background-color: rgb(10, 102, 194);
+    color: white;
+    font-weight: bold;
+    height: 35px;
+    width: 300px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+.linkedin-save-button {
+    background-color: white;
+    font-weight: bold;
+    color: rgb(10, 102, 194);
+    border-radius: 20px;
+    height: 35px;
+    width: 70px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(10, 102, 194);
+    cursor: pointer;
+}

@@ -1,0 +1,26 @@
+p {
+    font-family: Verdana;
+    margin: 0px;
+}
+.line-1 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+.line-2 {
+    font-size: 18px;
+    color: #606060;
+}
+.line-3 {
+    margin-top: 20px;
+    width: 350px;
+    font-size: 18px;
+}
+button {
+    background-color: green;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 7px 10px;
+    margin-top: 20px;
+}

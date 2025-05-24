@@ -1,0 +1,16 @@
+p {
+    font-family: Arial;
+    font-size: 16px;
+    margin: 5px 0px;
+}
+.acct-id {
+    color: #606060;
+}
+.line-2 {
+    width: 500px;
+    line-height: 22px;
+    margin-bottom: 20px;
+}
+.tag {
+    color: rgb(50, 50, 255);
+}
