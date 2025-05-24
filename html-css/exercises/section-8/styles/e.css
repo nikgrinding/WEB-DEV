@@ -1,0 +1,30 @@
+p {
+    font-size: 4cqmax;
+    margin: 20px 0px;
+}
+
+input {
+    display: block;
+    border: 1px solid #606060;
+    padding: 10px;
+    margin: 10px 0px;
+    width: 250px;
+    background-color: rgb(235, 235, 235)
+}
+
+.request-button, .schedule-button {
+    margin-top: 25px;
+    padding: 7px 10px;
+    border: none;
+    font-size: 15px;
+}
+
+.request-button {
+    color: white;
+    background-color: black;
+}
+
+.schedule-button {
+    background-color: rgb(235, 235, 235);
+    margin-left: 10px
+}
