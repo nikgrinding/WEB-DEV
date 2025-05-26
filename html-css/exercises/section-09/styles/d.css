@@ -1,0 +1,17 @@
+div {
+    width: 340px;
+    background-color: black;
+    padding: 15px;
+}
+.line-1 {
+    font-weight: bold;
+    font-size: 25px;
+    color: white;
+    margin-bottom: 15px;
+}
+.line-2 {
+    color: darkgray;
+}
+p {
+    margin: 0px;
+}
