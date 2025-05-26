@@ -1,0 +1,16 @@
+.thumbnail {
+    width: 300px;
+}
+
+.search-bar {
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.video-title {
+    width: 300px;
+}
+
+.thumbnail {
+    display: block;
+}
