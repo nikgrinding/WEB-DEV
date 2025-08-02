@@ -12,9 +12,9 @@ I'm currently in the early learning phase. Expect to find:
 
 | Technology   | Progress        |
 |--------------|-----------------|
-| HTML         | 🔄 In Progress   |
-| CSS          | 🔄 In Progress   |
-| JavaScript   | ❌ Not Started   |
+| HTML         | ✅ Completed   |
+| CSS          | ✅ Completed   |
+| JavaScript   | 🔄 In Progress   |
 
 ## Repository Structure
 
