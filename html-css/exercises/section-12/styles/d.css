@@ -1,0 +1,9 @@
+.box {
+    display: flex;
+    height: 50px;
+    border: 1px gray solid;
+    justify-content: space-between;
+}
+.item {
+    background-color: lightpink;
+}

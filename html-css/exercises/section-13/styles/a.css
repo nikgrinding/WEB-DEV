@@ -1,0 +1,19 @@
+.box {
+    display: flex;
+    height: 40px;
+}
+.left {
+    width: 100px;
+    background-color: lightpink;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.right {
+    background-color: lightblue;
+    width: 200px;
+}
+.item {
+    background-color: black;
+    color: white;
+}

@@ -1,0 +1,23 @@
+.box {
+    display: flex;
+    height: 50px;
+}
+.left {
+    width: 100px;
+    background-color: lightpink;
+}
+.right {
+    background-color: lightblue;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+.item {
+    background-color: black;
+    color: white;
+}
+.line2 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}

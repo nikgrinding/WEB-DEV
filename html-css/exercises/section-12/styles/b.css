@@ -1,0 +1,15 @@
+.box {
+    display: flex;
+}
+.left {
+    background-color: lightblue;
+    width: 50px;
+}
+.middle {
+    flex: 1;
+    background-color: lightpink;
+}
+.right {
+    background-color: lightblue;
+    width: 75px;
+}
