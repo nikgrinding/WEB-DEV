@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>8-h</title>
+    </head>
+    <body>
+        
+        <p>
+            <button onclick="
+                calculation = updateCalculation('1');
+            ">1</button>
+
+            <button onclick="
+                calculation = updateCalculation('2');
+            ">2</button>
+
+            <button onclick="
+                calculation = updateCalculation('3');
+            ">3</button>
+
+            <button onclick= "
+                calculation = updateCalculation(' + ');
+            ">+</button>
+        </p>
+
+        <p>
+            <button onclick="
+                calculation = updateCalculation('4');
+            ">4</button>
+
+            <button onclick="
+                calculation = updateCalculation('5');
+            ">5</button>
+
+            <button onclick="
+                calculation = updateCalculation('6');
+            ">6</button>
+
+            <button onclick= "
+                calculation = updateCalculation(' - ');
+            ">-</button>
+        </p>
+
+        <p>
+            <button onclick="
+                calculation = updateCalculation('7');
+            ">7</button>
+
+            <button onclick="
+                calculation = updateCalculation('8');
+            ">8</button>
+
+            <button onclick="
+                calculation = updateCalculation('9');
+            ">9</button>
+
+            <button onclick= "
+                calculation = updateCalculation(' * ');
+            ">*</button>
+        </p>
+
+        <p>
+            <button onclick="
+                calculation = updateCalculation('0');
+            ">0</button>
+
+            <button onclick="
+                calculation = updateCalculation('.');
+            ">.</button>
+
+            <button onclick="
+                evaluateCalculation();
+            ">=</button>
+
+            <button onclick= "
+                calculation = updateCalculation(' / ');
+            ">/</button>
+        </p>
+
+        <script>
+            let calculation = localStorage.getItem('calculation') || "";
+            function updateCalculation(value) {
+                console.log(calculation + value);
+                localStorage.setItem('calculation', calculation + value);
+                return calculation + value;
+            }
+            function evaluateCalculation() {
+                calculation = eval(calculation);
+                localStorage.setItem('calculation', calculation);
+                console.log(calculation);
+            }
+        </script>
+    </body>
+</html>

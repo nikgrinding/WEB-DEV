@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>9-c</title>
+    </head>
+    <body>
+        <button onclick = "
+            showChoice('heads');
+        ">
+            Heads
+        </button>
+
+        <button onclick="
+            showChoice('tails');
+        ">
+            Tails
+        </button>
+
+        <p class = "js-choice"></p>
+        
+        <script>
+            function showChoice(choice) {
+                let choiceElement = document.querySelector('.js-choice');
+                choiceElement.innerHTML = `You chose: ${choice}`;
+            }
+        </script>
+    </body>
+</html>

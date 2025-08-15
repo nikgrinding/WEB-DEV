@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>8-e</title>
+    </head>
+    <body>
+        <script>
+            function isSameProduct(product1, product2) {
+                return product1.name === product2.name && product1.price === product2.price;
+            }
+            const obj1 = {name: 'basketball', price: 20.95};
+            const obj2 = {name: 't-shirt', price: 5.99};
+            const obj3 = {name: 'basketball', price: 20.95};
+            console.log(isSameProduct(obj1, obj2));
+            console.log(isSameProduct(obj1, obj3));
+        </script>
+    </body>
+</html>

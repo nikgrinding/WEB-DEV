@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>8-d</title>
+    </head>
+    <body>
+        <script>
+            function comparePrice(product1, product2) {
+                if (product2.price < product1.price) {
+                    return product2;
+                }
+                return product1;
+            }
+            const obj1 = {name: 'basketball', price: 20.95};
+            const obj2 = {name: 't-shirt', price: 5.99};
+            console.log(comparePrice(obj1, obj2));
+        </script>
+    </body>
+</html>
