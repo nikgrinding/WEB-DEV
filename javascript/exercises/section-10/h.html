@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>10-h</title>
+        <link rel = "stylesheet" href = "styles/h.css">
+    </head>
+    <body>
+        <p>
+            YouTube Subscribe Button
+        </p>
+
+        <button class = "js-subscribe-button subscribe-button" onclick="
+            subscribe();
+        ">
+            Subscribe
+        </button>
+
+        <p>
+            Amazon Shipping Calculator
+        </p>
+
+        <p>
+            Orders under $40 = +$10 shipping.
+        </p>
+
+        <p>
+            Orders over $40 = FREE shipping.
+        </p>
+
+        <input type = "text" placeholder="Cost of order" class="js-cost-input cost-input" onkeydown="
+            handleCostKeyDown(event);
+        ">
+
+        <button class = "calculate-button" onclick="
+            calculateTotal();
+        ">
+            Calculate
+        </button>
+
+        <p class = "js-total-cost"></p>
+        <script src = "scripts/h.js"></script>
+    </body>
+</html>
