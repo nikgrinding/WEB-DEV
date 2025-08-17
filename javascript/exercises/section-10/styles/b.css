@@ -1,0 +1,11 @@
+button {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+} .request-button {
+    background-color: black;
+    color: white;
+} .schedule-button {
+    background-color: rgb(230, 230, 230);
+}

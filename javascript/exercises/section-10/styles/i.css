@@ -1,0 +1,21 @@
+body {
+    background-color: black;
+} .operand-button, .operator-button {
+    border: none;
+    height: 70px;
+    width: 70px;
+    border-radius: 35px;
+    color: white;
+    font-size: 30px;
+} .operand-button {
+    background-color: rgb(40, 40, 40);
+} .operator-button {
+    background-color: orange;
+} .calculation {
+    color: white;
+    font-size: 40px;
+    margin: 5px 0px;
+} span {
+    font-size: 15px;
+    vertical-align: middle;
+}
