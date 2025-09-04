@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>advanced functions</title>
+    </head>
+    <body>
+        <script>
+            // function greeting() {
+            //     console.log("Hello");
+            // }
+            // greeting();
+
+            // let function1 = function() {
+            //     console.log("Hello2");
+            // };
+            // console.log(function1);
+            // console.log(typeof(function1));
+            // function1();
+
+            // const object1 = {
+            //     name: "obj",
+            //     fun: function() {
+            //         console.log("Hello3");
+            //     }
+            // }
+            // object1.fun();
+
+            // function display(param) {
+            //     console.log(param);
+            // }
+            // display(2);
+
+            // function run (param) {
+            //     param();
+            // }
+            // run (
+            //     function() {
+            //         console.log("Hello4");
+            //     }
+            // );
+
+            // setTimeout(function() {
+            //     console.log('timeout');
+            //     console.log('timeout2');
+            // }, 3000);
+            // console.log("next line 1");
+            // setInterval(function() {
+            //     console.log('interval');
+            // }, 3000);
+            // console.log("next line 2");
+
+            const array = [
+                "make dinner",
+                "wash dishes",
+                "watch youtube"
+            ];
+
+            array.forEach(function(value, index) {
+                if (value === "wash dishes") {
+                    return;
+                }
+                console.log(value, index);
+            })
+        </script>
+    </body>
+</html>
