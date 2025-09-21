@@ -15,6 +15,7 @@ I'm currently in the early learning phase. Expect to find:
 | HTML         | ✅ Completed   |
 | CSS          | ✅ Completed   |
 | JavaScript   | 🔄 In Progress   |
+| Flask   | 🔄 In Progress   |
 
 ## Repository Structure
 
@@ -23,7 +24,6 @@ I'm organizing this repo into directories based on technologies and topics to ke
 ```bash
 /html-css    # Experiments using HTML and CSS
 /javascript  # JavaScript learning and snippets
-/projects    # Completed or in-progress web development projects
 /...         # Additional folders for frameworks/libraries in the future
 ```
 

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Register Page
+{% endblock %}
+
+{% block content %}
+    <body class = "text-center">
+        <div class="container" style="width: 600px;">
+            <form method = "POST" class = "form-register" style="color: white;">
+                {{ form.hidden_tag() }}
+    
+                <img src = "{{ url_for('static', filename='images/discord.jpg') }}" style = "width: 150px; height: 150px; border-radius: 50%; margin: 30px; object-fit: contain; background-color: black;">
+    
+                <h1 class="h3 mb-3 font-weight-normal">Please Create your Account</h1>
+                <br>
+    
+                {{ form.username.label() }}
+                {{ form.username(class = "form-control mb-2", placeholder = "User Name") }}
+    
+                {{ form.email_address.label() }}
+                {{ form.email_address(class = "form-control mb-2", placeholder = "Email Address") }}
+    
+                {{ form.password1.label() }}
+                {{ form.password1(class = "form-control mb-2", placeholder = "Password") }}
+    
+                {{ form.password2.label() }}
+                {{ form.password2(class = "form-control mb-2", placeholder = "Confirm Password") }}
+                <br>
+    
+                {{ form.submit(class = "btn btn-lg btn-block btn-primary mt-2") }}
+            </form>
+        </div>
+    </body>
+{% endblock %}
