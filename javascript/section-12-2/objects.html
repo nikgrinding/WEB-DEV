@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>objects</title>
+    </head>
+    <body>
+        <script>
+            const product = {
+                name: 'key chain',
+                price: '50'
+            };
+            console.log(product);
+            console.log(product.name);
+            console.log(product.price);
+
+            product.name = 'cycle';
+            console.log(product.name);
+
+            product.tempProperty = true;
+            console.log(product);
+
+            delete product.tempProperty;
+            console.log(product);
+
+            console.log(typeof(product));
+
+            const product2 = {
+                name: 'shirt',
+                'delivery-time' : '1 day',
+                rating: {
+                    stars: 4.7,
+                    count: 87
+                },
+                fun: function f1() {
+                    console.log("Function inside object");
+                }
+            };
+            console.log(product2);
+            console.log(product2.name);
+            console.log(product2['name']);
+            console.log(product2['delivery-time']);
+
+            console.log(product2.rating);
+
+            product2.fun();
+
+            const jsonString = JSON.stringify(product2);
+            console.log(jsonString);
+            console.log(typeof(jsonString));
+
+            console.log(JSON.parse(jsonString));
+
+            console.log("hello".length);
+            console.log("hello".toUpperCase());
+
+            const obj1 = {message: 'hello'};
+            const obj2 = obj1;
+            obj2.message = 'bye';
+            console.log(obj1);
+
+            console.log(obj1===obj2);
+            const obj3 = {message: 'bye'};
+            console.log(obj1===obj3);
+
+            const obj4 = {message: 'bye', time: '12:00'};
+            // const message = obj4.message;
+            const {message, time} = obj4;
+            console.log(message, time);
+
+            const obj5 = {
+                message,
+                time,
+                method(){
+                    console.log("hi");
+                }
+            };
+            console.log(obj5);
+            obj5.method();
+        </script>
+    </body>
+</html>

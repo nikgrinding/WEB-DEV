@@ -6,16 +6,17 @@ Welcome to my Web Development repository! This is where I learn and experiment w
 
 I'm currently in the early learning phase. Expect to find:
 
-- Small practice projects  
-- Code snippets  
-- Notes and experiments  
+-   Small practice projects
+-   Code snippets
+-   Notes and experiments
 
-| Technology   | Progress        |
-|--------------|-----------------|
-| HTML         | ✅ Completed   |
-| CSS          | ✅ Completed   |
-| JavaScript   | 🔄 In Progress   |
-| Flask   | 🔄 In Progress   |
+| Technology | Progress       |
+| ---------- | -------------- |
+| HTML       | ✅ Completed   |
+| CSS        | ✅ Completed   |
+| JavaScript | 🔄 In Progress |
+| Flask      | ✅ Completed   |
+| React      | 🔄 In Progress |
 
 ## Repository Structure
 
