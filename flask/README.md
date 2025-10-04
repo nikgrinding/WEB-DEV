@@ -12,14 +12,14 @@ _(Folders will be added/updated as I progress through the course.)_
 
 ## What I'm Learning
 
-- Core Flask concepts like routing and dynamic URLs.
-- Using **Jinja** templates and template inheritance to build modular HTML pages.
-- Integrating **Bootstrap** to create styled and responsive designs.
-- Connecting to a database (SQLite3) with **Flask-SQLAlchemy** and creating data models.
-- Building a complete user authentication system (registration, login, password hashing) with **Flask-WTF** and **Flask-Login**.
-- Implementing flashed messages for user feedback and form validation.
-- Structuring a larger Flask application into a scalable package.
-- Creating a sample marketplace application with purchase and sell functionality.
+-   Core Flask concepts like routing and dynamic URLs.
+-   Using **Jinja** templates and template inheritance to build modular HTML pages.
+-   Integrating **Bootstrap** to create styled and responsive designs.
+-   Connecting to a database (SQLite3) with **Flask-SQLAlchemy** and creating data models.
+-   Building a complete user authentication system (registration, login, password hashing) with **Flask-WTF** and **Flask-Login**.
+-   Implementing flashed messages for user feedback and form validation.
+-   Structuring a larger Flask application into a scalable package.
+-   Creating a sample marketplace application with purchase and sell functionality.
 
 ## Notes
 

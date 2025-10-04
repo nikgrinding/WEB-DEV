@@ -13,10 +13,10 @@ _(Folders will be added/updated as I progress through the course.)_
 
 ## What I'm Learning
 
-- Writing clean and semantic HTML  
-- Styling with modern CSS (including best practices)  
-- Creating layouts using Flexbox  
-- Building simple, responsive webpages without frameworks  
+-   Writing clean and semantic HTML
+-   Styling with modern CSS (including best practices)
+-   Creating layouts using Flexbox
+-   Building simple, responsive webpages without frameworks
 
 ## Notes
 
