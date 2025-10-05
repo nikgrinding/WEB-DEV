@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Chatbot</title>
+	</head>
+	<body>
+		<div class="js-container"></div>
+
+		<script src="https://unpkg.com/supersimpledev/react.js"></script>
+		<script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+		<script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
+
+		<script src="https://unpkg.com/supersimpledev/babel.js"></script>
+		<script type="text/babel">
+			function ChatInput({ chatMessages, setChatMessages }) {
+				const [inputText, setInputText] = React.useState('');
+				const [isLoading, setIsLoading] = React.useState(false);
+
+				function saveInputText(event) {
+					setInputText(event.target.value);
+				}
+
+				async function sendMessage() {
+					if (isLoading || !inputText) {
+						return;
+					}
+					const newMessages = [
+						...chatMessages,
+						{
+							message: inputText,
+							sender: 'user',
+							key: crypto.randomUUID(),
+						},
+					];
+					setChatMessages(newMessages);
+
+					setInputText('');
+					setIsLoading(true);
+					setChatMessages([
+						...newMessages,
+						{
+							message: 'Loading...',
+							sender: 'robot',
+							key: crypto.randomUUID(),
+						},
+					]);
+
+					setChatMessages([
+						...newMessages,
+						{
+							message: await Chatbot.getResponseAsync(inputText),
+							sender: 'robot',
+							key: crypto.randomUUID(),
+						},
+					]);
+					setIsLoading(false);
+				}
+
+				function trackKeys(event) {
+					if (event.key === 'Enter') {
+						sendMessage();
+					} else if (event.key === 'Escape') {
+						setInputText('');
+					}
+				}
+
+				return (
+					<>
+						<input
+							placeholder="Send a message to Chatbot"
+							size="30"
+							onChange={saveInputText}
+							value={inputText}
+							onKeyDown={trackKeys}
+						/>
+						<button onClick={sendMessage}>Send</button>
+					</>
+				);
+			}
+
+			function ChatMessage({ message, sender }) {
+				return (
+					<div>
+						{sender === 'robot' && (
+							<img src="static/robot.png" width="50px" />
+						)}
+						{message}
+						{sender === 'user' && (
+							<img src="static/user.png" width="50px" />
+						)}
+					</div>
+				);
+			}
+
+			function ChatMessages({ chatMessages }) {
+				return (
+					<>
+						{chatMessages.map(({ message, sender, key }) => {
+							return (
+								<ChatMessage
+									message={message}
+									sender={sender}
+									key={key}
+								/>
+							);
+						})}
+					</>
+				);
+			}
+
+			function App() {
+				const [chatMessages, setChatMessages] = React.useState([
+					{ message: 'hello chatbot', sender: 'user', key: 'id1' },
+					{
+						message: 'Hello! How can I help you?',
+						sender: 'robot',
+						key: 'id2',
+					},
+					{
+						message: "can you get me today's date",
+						sender: 'user',
+						key: 'id3',
+					},
+					{
+						message: 'Today is October 5',
+						sender: 'robot',
+						key: 'id4',
+					},
+				]);
+
+				return (
+					<>
+						<ChatInput
+							chatMessages={chatMessages}
+							setChatMessages={setChatMessages}
+						/>
+						<ChatMessages chatMessages={chatMessages} />
+					</>
+				);
+			}
+
+			const container = document.querySelector('.js-container');
+			ReactDOM.createRoot(container).render(<App />);
+		</script>
+	</body>
+</html>
