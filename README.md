@@ -10,13 +10,14 @@ I'm currently in the early learning phase. Expect to find:
 -   Code snippets
 -   Notes and experiments
 
-| Technology | Progress       |
-| ---------- | -------------- |
-| HTML       | ✅ Completed   |
-| CSS        | ✅ Completed   |
-| JavaScript | 🔄 In Progress |
-| Flask      | ✅ Completed   |
-| React      | 🔄 In Progress |
+| Technology | Progress           |
+| ---------- | ------------------ |
+| HTML       | ✅ Completed       |
+| CSS        | ✅ Completed       |
+| JavaScript | 🔄 In Progress     |
+| Flask      | ✅ Completed       |
+| React      | 🔄 In Progress     |
+| Bootstrap  | ✅ Basic Knowledge |
 
 ## Repository Structure
 
