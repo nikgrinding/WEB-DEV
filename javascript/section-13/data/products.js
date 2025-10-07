@@ -476,4 +476,26 @@ const products = [
 		priceCents: 2400,
 		keywords: ['sweaters', 'hoodies', 'apparel', 'mens'],
 	},
+	{
+		id: 'id1',
+		image: 'images/products/backpack.jpg',
+		name: 'Backpack for school children',
+		rating: {
+			stars: 4,
+			count: 7872,
+		},
+		priceCents: 1900,
+		keywords: ['womens', 'school', 'apparel', 'mens'],
+	},
+	{
+		id: 'id2',
+		image: 'images/products/umbrella.jpg',
+		name: 'Medium width umbrella',
+		rating: {
+			stars: 4.5,
+			count: 2932,
+		},
+		priceCents: 1000,
+		keywords: ['womens', 'rain', 'apparel', 'mens'],
+	},
 ];
