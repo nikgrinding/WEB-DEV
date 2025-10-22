@@ -1,7 +1,6 @@
 import {
 	cart,
 	removeFromCart,
-	calculateCartQuantity,
 	updateQuantity,
 	updateDeliveryOption,
 } from '../../data/cart.js';
@@ -28,7 +27,7 @@ export function renderOrderSummary() {
 
 		const dateString = calculateDeliveryDate(deliveryOption);
 
-		cartSummaryHTML += `<div class="cart-item-container js-cart-item-container-${
+		cartSummaryHTML += `<div class="cart-item-container js-cart-item-container js-cart-item-container-${
 			matchingProduct.id
 		}">
             <div class="delivery-date">
@@ -48,7 +47,9 @@ export function renderOrderSummary() {
                     <div class="product-price">$${formatCurrency(
 						matchingProduct.priceCents
 					)}</div>
-                    <div class="product-quantity">
+                    <div class="product-quantity js-product-quantity-${
+						matchingProduct.id
+					}">
                         <span>
                             Quantity:
                             <span class="quantity-label js-quantity-label-${
@@ -69,9 +70,9 @@ export function renderOrderSummary() {
 							matchingProduct.id
 						}">Save</span>
                         <span
-                            class="delete-quantity-link link-primary js-delete-quantity-link" data-product-id = "${
+                            class="delete-quantity-link link-primary js-delete-quantity-link js-delete-quantity-link-${
 								matchingProduct.id
-							}"
+							}" data-product-id = "${matchingProduct.id}"
                         >
                             Delete
                         </span>
