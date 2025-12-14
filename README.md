@@ -14,7 +14,7 @@ I'm currently in the early learning phase. Expect to find:
 | ---------- | ------------------ |
 | HTML       | ✅ Completed       |
 | CSS        | ✅ Completed       |
-| JavaScript | 🔄 In Progress     |
+| JavaScript | ✅ Completed       |
 | Flask      | ✅ Completed       |
 | React      | 🔄 In Progress     |
 | Bootstrap  | ✅ Basic Knowledge |
