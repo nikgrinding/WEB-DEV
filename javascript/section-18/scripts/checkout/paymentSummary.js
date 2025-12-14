@@ -74,12 +74,13 @@ export function renderPaymentSummary() {
 					{
 						method: 'POST',
 						headers: { 'Content-Type': 'application/json' },
-						body: JSON.stringify({ cart: cart }),
+						body: JSON.stringify({ cart: cart.cartItems }),
 					}
 				);
 				const order = await response.json();
 				addOrder(order);
-			} catch {
+				cart.clearCart();
+			} catch (error) {
 				console.log('unexpected error. please try again later');
 			}
 			window.location.href = 'orders.html';
