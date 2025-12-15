@@ -4,6 +4,7 @@ import Header from "../components/Header";
 export default function OrdersPage() {
     return (
         <>
+            <link rel="icon" href="orders-favicon.png"></link>
             <title>Orders</title>
 
             <Header />

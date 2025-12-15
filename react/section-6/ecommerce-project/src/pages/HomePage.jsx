@@ -4,6 +4,7 @@ import Header from "../components/Header";
 export default function HomePage() {
     return (
         <>
+            <link rel="icon" href="home-favicon.png"></link>
             <title>Ecommerce Project</title>
 
             <Header />
