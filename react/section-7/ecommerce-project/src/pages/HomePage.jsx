@@ -2,15 +2,12 @@ import "./HomePage.css";
 import Header from "../components/Header";
 import Checkmark from "../assets/images/icons/checkmark.png";
 import { products } from "../../starting-code/data/products.js";
+import axios from "axios";
 
 export default function HomePage() {
-    fetch("http://localhost:3000/api/products")
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-            console.log(data);
-        });
+    axios.get("http://localhost:3000/api/products").then((response) => {
+        console.log(response.data);
+    });
 
     return (
         <>
