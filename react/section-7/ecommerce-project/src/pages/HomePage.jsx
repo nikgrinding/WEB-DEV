@@ -3,17 +3,14 @@ import Header from "../components/Header";
 import Checkmark from "../assets/images/icons/checkmark.png";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import formatMoney from "../utils/money.js";
 
-export default function HomePage() {
+export default function HomePage({ cart }) {
     const [products, setProducts] = useState([]);
-    const [cart, setCart] = useState([]);
 
     useEffect(() => {
         axios.get("/api/products").then((response) => {
             setProducts(response.data);
-        });
-        axios.get("/api/cart-items").then((response) => {
-            setCart(response.data);
         });
     }, []);
 
@@ -53,7 +50,7 @@ export default function HomePage() {
                                 </div>
 
                                 <div className="product-price">
-                                    ${(product.priceCents / 100).toFixed(2)}
+                                    ${formatMoney(product.priceCents)}
                                 </div>
 
                                 <div className="product-quantity-container">
