@@ -27,31 +27,20 @@ export default function HomePage({ cart }) {
                         return (
                             <div key={product.id} className="product-container">
                                 <div className="product-image-container">
-                                    <img
-                                        className="product-image"
-                                        src={product.image}
-                                    />
+                                    <img className="product-image" src={product.image} />
                                 </div>
 
-                                <div className="product-name limit-text-to-2-lines">
-                                    {product.name}
-                                </div>
+                                <div className="product-name limit-text-to-2-lines">{product.name}</div>
 
                                 <div className="product-rating-container">
                                     <img
                                         className="product-rating-stars"
-                                        src={`images/ratings/rating-${
-                                            product.rating.stars * 10
-                                        }.png`}
+                                        src={`images/ratings/rating-${product.rating.stars * 10}.png`}
                                     />
-                                    <div className="product-rating-count link-primary">
-                                        {product.rating.count}
-                                    </div>
+                                    <div className="product-rating-count link-primary">{product.rating.count}</div>
                                 </div>
 
-                                <div className="product-price">
-                                    ${formatMoney(product.priceCents)}
-                                </div>
+                                <div className="product-price">${formatMoney(product.priceCents)}</div>
 
                                 <div className="product-quantity-container">
                                     <select>
@@ -75,9 +64,7 @@ export default function HomePage({ cart }) {
                                     Added
                                 </div>
 
-                                <button className="add-to-cart-button button-primary">
-                                    Add to Cart
-                                </button>
+                                <button className="add-to-cart-button button-primary">Add to Cart</button>
                             </div>
                         );
                     })}
