@@ -13,7 +13,7 @@ readFile("./content/first.txt", "utf-8", (error, result) => {
             return;
         }
         const second = result;
-        writeFile("./content/result-async", `here is the result: ${first}, ${second}\n`, (error, result) => {
+        writeFile("./content/result-async.txt", `here is the result: ${first}, ${second}\n`, (error, result) => {
             if (error) {
                 console.log("Unfortunately, an error occured.\n", error);
                 return;
