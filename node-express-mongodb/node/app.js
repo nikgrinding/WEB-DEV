@@ -1,1 +1,1 @@
-console.log("this folder correspons to node.js :)");
+console.log("this folder corresponds to node.js :)");
