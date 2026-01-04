@@ -8,6 +8,7 @@ import morgan from "morgan";
 import fs from "fs";
 import path from "path";
 import connectDB from "./db/connect.js";
+import authRouter from "./routes/authRoutes.js";
 
 const app = express();
 
@@ -37,6 +38,8 @@ app.use(cors({ credentials: true }));
 app.get("/", (req, res) => {
     return res.send("API working");
 });
+
+app.use("/api/v1/auth", authRouter);
 
 app.use((err, req, res, next) => {
     console.error("Error:", err.stack);
