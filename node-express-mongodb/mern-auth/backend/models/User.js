@@ -21,11 +21,11 @@ const userSchema = new mongoose.Schema(
             minlength: [6, "Password must be at least 6 characters long"],
             select: false,
         },
-        verifyOTP: {
+        verificationOTP: {
             type: String,
             default: "",
         },
-        verifyOTPExpireTime: {
+        verificationOTPExpireTime: {
             type: Number,
             default: 0,
         },
