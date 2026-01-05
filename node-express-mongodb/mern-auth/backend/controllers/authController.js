@@ -151,3 +151,81 @@ export const verifyEmail = async (req, res) => {
         return res.status(500).json({ success: false, message: "Internal server error" });
     }
 };
+
+export const isAuthenticated = async (req, res) => {
+    try {
+        return res.status(200).json({ success: true });
+    } catch (error) {
+        console.error("User authentication status error:", error);
+        return res.status(500).json({ success: false, message: "Internal server error" });
+    }
+};
+
+export const sendResetOTP = async (req, res) => {
+    const { email } = req.body;
+    if (!email) {
+        return res.status(400).json({ success: false, message: "Email is required" });
+    }
+    try {
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(404).json({ success: false, message: "User not Found" });
+        }
+
+        const OTP = String(Math.floor(100000 + Math.random() * 900000));
+        user.resetOTP = OTP;
+        user.resetOTPExpireTime = Date.now() + 15 * 60 * 1000; // till 15 mins
+        await user.save();
+
+        const mailOptions = {
+            from: process.env.EMAIL_FROM,
+            to: user.email,
+            subject: "Password Reset OTP",
+            text: `Your OTP is: ${OTP}. Reset your password using this OTP.`,
+        };
+        try {
+            await transporter.sendMail(mailOptions);
+        } catch (error) {
+            console.error("Reset password email failed:", error.message);
+        }
+
+        return res.status(200).json({ success: true, message: "Password reset OTP sent to registered mail id" });
+    } catch (error) {
+        console.error("Send reset OTP error:", error);
+        return res.status(500).json({ success: false, message: "Internal server error" });
+    }
+};
+
+export const resetPassword = async (req, res) => {
+    const { email, OTP, newPassword } = req.body;
+    if (!email || !OTP || !newPassword) {
+        return res.status(400).json({ success: false, message: "Email, OTP and new Password are required" });
+    }
+
+    try {
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(404).json({ success: false, message: "User not Found" });
+        }
+
+        if (!user.resetOTP || user.resetOTP !== OTP) {
+            return res.status(401).json({ success: false, message: "Invalid OTP" });
+        }
+
+        if (user.resetOTPExpireTime < Date.now()) {
+            return res.status(410).json({ success: false, message: "OTP Expired" });
+        }
+
+        const hashedPassword = await bcrypt.hash(newPassword, 10);
+        user.password = hashedPassword;
+        user.resetOTP = "";
+        user.resetOTPExpireTime = 0;
+
+        await user.save();
+
+        return res.status(200).json({ success: true, message: "Password reset successfully" });
+    } catch (error) {
+        console.error("Verify password reset OTP error:", error);
+        return res.status(500).json({ success: false, message: "Internal server error" });
+    }
+};
