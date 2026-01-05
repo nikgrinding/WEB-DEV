@@ -9,6 +9,7 @@ import fs from "fs";
 import path from "path";
 import connectDB from "./db/connect.js";
 import authRouter from "./routes/authRoutes.js";
+import userRouter from "./routes/userRoutes.js";
 
 const app = express();
 
@@ -40,6 +41,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/user", userRouter);
 
 app.use((err, req, res, next) => {
     console.error("Error:", err.stack);
