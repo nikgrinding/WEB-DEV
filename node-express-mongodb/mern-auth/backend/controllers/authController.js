@@ -1,5 +1,6 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import crypto from "crypto";
 import User from "../models/User.js";
 import { getCookieOptions, getClearCookieOptions } from "../utils/cookieOptions.js";
 import transporter from "../services/emailService.js";
@@ -33,7 +34,7 @@ export const register = async (req, res) => {
         try {
             await transporter.sendMail(mailOptions);
         } catch (error) {
-            console.error("Welcome email failed:", error.message);
+            console.error(`Welcome email failed to ${email}:`, error.message);
         }
 
         return res.status(201).json({ success: true });
@@ -94,7 +95,7 @@ export const sendVerificationOTP = async (req, res) => {
             return res.status(400).json({ success: false, message: "Account already verified" });
         }
 
-        const OTP = String(Math.floor(100000 + Math.random() * 900000));
+        const OTP = String(crypto.randomInt(100000, 1000000));
         user.verificationOTP = OTP;
         user.verificationOTPExpireTime = Date.now() + 24 * 60 * 60 * 1000; // till 1 day
         await user.save();
@@ -108,7 +109,7 @@ export const sendVerificationOTP = async (req, res) => {
         try {
             await transporter.sendMail(mailOptions);
         } catch (error) {
-            console.error("Verification email failed:", error.message);
+            console.error(`Verification email failed to ${user.email}:`, error.message);
         }
 
         return res.status(200).json({ success: true, message: "Verification OTP sent to registered mail id" });
@@ -172,7 +173,7 @@ export const sendResetOTP = async (req, res) => {
             return res.status(404).json({ success: false, message: "User not Found" });
         }
 
-        const OTP = String(Math.floor(100000 + Math.random() * 900000));
+        const OTP = String(crypto.randomInt(100000, 1000000));
         user.resetOTP = OTP;
         user.resetOTPExpireTime = Date.now() + 15 * 60 * 1000; // till 15 mins
         await user.save();
@@ -186,7 +187,7 @@ export const sendResetOTP = async (req, res) => {
         try {
             await transporter.sendMail(mailOptions);
         } catch (error) {
-            console.error("Reset password email failed:", error.message);
+            console.error(`Reset password email failed to ${user.email}:`, error.message);
         }
 
         return res.status(200).json({ success: true, message: "Password reset OTP sent to registered mail id" });
