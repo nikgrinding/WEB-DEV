@@ -14,10 +14,10 @@ const Navbar = () => {
             axios.defaults.withCredentials = true;
             const { data } = await axios.post(backendUrl + "/api/v1/auth/logout");
             data.success && setIsLoggedIn(false);
-            data.success && setUserData(false);
+            data.success && setUserData(null);
             navigate("/");
         } catch (error) {
-            toast.error(error.response.data.message);
+            toast.error(error.response?.data?.message || "Logout failed");
         }
     };
     return (
