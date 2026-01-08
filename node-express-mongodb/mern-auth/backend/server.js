@@ -34,7 +34,9 @@ app.use(limiter);
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 app.use(cookieParser());
-app.use(cors({ credentials: true }));
+
+const allowedOrigins = ["http://localhost:5173"];
+app.use(cors({ origin: allowedOrigins, credentials: true }));
 
 app.get("/", (req, res) => {
     return res.send("API working");
