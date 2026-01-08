@@ -1,20 +1,40 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AppContext } from "./AppContext";
 import { toast } from "react-toastify";
+
+axios.defaults.withCredentials = true;
 
 export const AppContextProvider = (props) => {
     const backendUrl = import.meta.env.VITE_BACKEND_URL;
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [userData, setUserData] = useState(false);
+
     const getUserData = async () => {
         try {
             const { data } = await axios.get(backendUrl + "/api/v1/user/data");
             data.success ? setUserData(data.userData) : toast.error(data.message);
         } catch (error) {
-            toast.error(error.response.data.message);
+            toast.error(error.response?.data?.message || "Something went wrong");
         }
     };
+
+    const getAuthState = async () => {
+        try {
+            const { data } = await axios.get(backendUrl + "/api/v1/auth/is-authenticated");
+            if (data.success) {
+                setIsLoggedIn(true);
+                getUserData();
+            }
+        } catch (error) {
+            toast.error(error.response?.data?.message || "Something went wrong");
+        }
+    };
+
+    useEffect(() => {
+        getAuthState();
+    }, []);
+
     const value = { backendUrl, isLoggedIn, setIsLoggedIn, userData, setUserData, getUserData };
     return <AppContext.Provider value={value}>{props.children}</AppContext.Provider>;
 };
