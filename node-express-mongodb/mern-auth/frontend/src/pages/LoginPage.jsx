@@ -19,13 +19,12 @@ const LoginPage = () => {
     const onSubmitHandler = async (e) => {
         try {
             e.preventDefault();
-            axios.defaults.withCredentials = true;
             if (state === "Sign Up") {
                 const { data } = await axios.post(backendUrl + "/api/v1/auth/register", { name, email, password });
                 if (data.success) {
                     toast.success("Account created successfully");
                     setIsLoggedIn(true);
-                    getUserData();
+                    await getUserData();
                     navigate("/");
                 } else {
                     toast.error(data.message);
@@ -35,14 +34,14 @@ const LoginPage = () => {
                 if (data.success) {
                     toast.success("Login successful");
                     setIsLoggedIn(true);
-                    getUserData();
+                    await getUserData();
                     navigate("/");
                 } else {
                     toast.error(data.message);
                 }
             }
         } catch (error) {
-            toast.error(error.response?.data?.message || "An error occurred");
+            toast.error(error.response?.data?.message || "Authentication failed");
         }
     };
 
@@ -50,6 +49,7 @@ const LoginPage = () => {
         <div className="flex items-center justify-center min-h-screen px-6 sm:px-0 bg-gradient-to-br from-blue-200 to-purple-400">
             <img
                 src={assets.logo}
+                alt="Logo"
                 className="absolute left-5 sm:left-20 top-5 w-28 sm:w-32 cursor-pointer"
                 onClick={() => navigate("/")}
             />
@@ -66,7 +66,7 @@ const LoginPage = () => {
                 <form onSubmit={onSubmitHandler}>
                     {state === "Sign Up" && (
                         <div className="mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#333A5C]">
-                            <img src={assets.person_icon} />
+                            <img src={assets.person_icon} alt="Person" />
                             <input
                                 className="bg-transparent outline-none"
                                 type="text"
@@ -79,7 +79,7 @@ const LoginPage = () => {
                     )}
 
                     <div className="mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#333A5C]">
-                        <img src={assets.mail_icon} />
+                        <img src={assets.mail_icon} alt="Email" />
                         <input
                             className="bg-transparent outline-none"
                             type="email"
@@ -91,7 +91,7 @@ const LoginPage = () => {
                     </div>
 
                     <div className="mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#333A5C]">
-                        <img src={assets.lock_icon} />
+                        <img src={assets.lock_icon} alt="Password" />
                         <input
                             className="bg-transparent outline-none"
                             type="password"

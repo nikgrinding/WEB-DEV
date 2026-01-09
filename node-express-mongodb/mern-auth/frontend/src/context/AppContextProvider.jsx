@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState, useCallback } from "react";
 import { AppContext } from "./AppContext";
-import { toast } from "react-toastify";
 
 axios.defaults.withCredentials = true;
 
@@ -13,9 +12,12 @@ export const AppContextProvider = (props) => {
     const getUserData = useCallback(async () => {
         try {
             const { data } = await axios.get(backendUrl + "/api/v1/user/data");
-            data.success ? setUserData(data.userData) : toast.error(data.message);
+            if (data.success) {
+                setUserData(data.userData);
+            }
         } catch (error) {
-            toast.error(error.response?.data?.message || "Something went wrong");
+            console.error(error);
+            setUserData(null);
         }
     }, [backendUrl]);
 

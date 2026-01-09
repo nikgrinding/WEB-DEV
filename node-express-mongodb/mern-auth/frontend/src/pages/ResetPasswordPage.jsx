@@ -4,7 +4,6 @@ import { useContext, useRef, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import axios from "axios";
 import { toast } from "react-toastify";
-axios.defaults.withCredentials = true;
 
 const ResetPasswordPage = () => {
     const { backendUrl } = useContext(AppContext);
@@ -54,7 +53,8 @@ const ResetPasswordPage = () => {
     const onSubmitOtp = async (e) => {
         e.preventDefault();
         const otpArray = inputRefs.current.map((e) => e.value);
-        setOtp(otpArray.join(""));
+        const otpValue = otpArray.join("");
+        setOtp(otpValue);
         setIsOtpSubmitted(true);
     };
 
@@ -81,6 +81,7 @@ const ResetPasswordPage = () => {
         <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-200 to-purple-400">
             <img
                 src={assets.logo}
+                alt="Logo"
                 className="absolute left-5 sm:left-20 top-5 w-28 sm:w-32 cursor-pointer"
                 onClick={() => navigate("/")}
             />
@@ -90,7 +91,7 @@ const ResetPasswordPage = () => {
                     <h1 className="text-white text-2xl font-semibold text-center mb-4">Reset Password</h1>
                     <p className="text-center mb-6 text-indigo-300">Enter your registered email</p>
                     <div className="mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#333A5C] text-white">
-                        <img src={assets.mail_icon} className="w-3 h-3" />
+                        <img src={assets.mail_icon} alt="Email" className="w-3 h-3" />
                         <input
                             type="email"
                             placeholder="Email id"
@@ -142,7 +143,7 @@ const ResetPasswordPage = () => {
                     <h1 className="text-white text-2xl font-semibold text-center mb-4">New Password</h1>
                     <p className="text-center mb-6 text-indigo-300">Enter the new password below</p>
                     <div className="mb-4 flex items-center gap-3 w-full px-5 py-2.5 rounded-full bg-[#333A5C] text-white">
-                        <img src={assets.lock_icon} className="w-3 h-3" />
+                        <img src={assets.lock_icon} alt="Password" className="w-3 h-3" />
                         <input
                             type="password"
                             placeholder="Password"

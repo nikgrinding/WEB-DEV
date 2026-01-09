@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { AppContext } from "../context/AppContext";
-axios.defaults.withCredentials = true;
 
 const VerifyEmailPage = () => {
     const { backendUrl, getUserData, isLoggedIn, userData } = useContext(AppContext);
@@ -49,11 +48,12 @@ const VerifyEmailPage = () => {
 
     useEffect(() => {
         isLoggedIn && userData && userData.isAccountVerified && navigate("/");
-    }, [isLoggedIn, userData]);
+    }, [isLoggedIn, userData, navigate]);
     return (
         <div className="flex items-center justify-center min-h-screen sm:px-0 bg-gradient-to-br from-blue-200 to-purple-400">
             <img
                 src={assets.logo}
+                alt="Logo"
                 className="absolute left-5 sm:left-20 top-5 w-28 sm:w-32 cursor-pointer"
                 onClick={() => navigate("/")}
             />
