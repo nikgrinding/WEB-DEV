@@ -85,7 +85,7 @@ export const EMAIL_VERIFY_TEMPLATE = `
                       </tr>
                       <tr>
                         <td style="padding: 0 0 24px;">
-                          <p class="button" >{{otp}}</p>
+                          <p class="button" >{{OTP}}</p>
                         </td>
                       </tr>
                       <tr>
@@ -196,7 +196,7 @@ export const PASSWORD_RESET_TEMPLATE = `
                       </tr>
                       <tr>
                         <td style="padding: 0 0 24px;">
-                          <p class="button" >{{otp}}</p>
+                          <p class="button" >{{OTP}}</p>
                         </td>
                       </tr>
                       <tr>

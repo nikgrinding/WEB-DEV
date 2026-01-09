@@ -4,6 +4,7 @@ import User from "../models/User.js";
 import { getCookieOptions, getClearCookieOptions } from "../utils/cookieOptions.js";
 import { generateOTP } from "../utils/otpGenerator.js";
 import { sendEmail } from "../utils/emailSender.js";
+import { EMAIL_VERIFY_TEMPLATE, PASSWORD_RESET_TEMPLATE } from "../templates/emailTemplates.js";
 
 export const register = async (req, res) => {
     const { name, email, password } = req.body;
@@ -25,12 +26,7 @@ export const register = async (req, res) => {
 
         res.cookie("token", token, getCookieOptions());
 
-        await sendEmail(
-            email,
-            "Welcome to my application",
-            `Your account has been created with email id: ${email}`,
-            "Welcome email"
-        );
+        await sendEmail(email);
 
         return res.status(201).json({ success: true });
     } catch (error) {
@@ -95,12 +91,8 @@ export const sendVerificationOTP = async (req, res) => {
         user.verificationOTPExpireTime = Date.now() + 24 * 60 * 60 * 1000; // till 1 day
         await user.save();
 
-        await sendEmail(
-            user.email,
-            "Account verification OTP",
-            `Your OTP is: ${OTP}. Verify your account using this OTP.`,
-            "Verification email"
-        );
+        const htmlContent = EMAIL_VERIFY_TEMPLATE.replace("{{OTP}}", OTP).replace("{{email}}", user.email);
+        await sendEmail(user.email, "Account Verification OTP", htmlContent, "Verification email");
 
         return res.status(200).json({ success: true, message: "Verification OTP sent to registered mail id" });
     } catch (error) {
@@ -163,12 +155,8 @@ export const sendResetOTP = async (req, res) => {
         user.resetOTPExpireTime = Date.now() + 15 * 60 * 1000; // till 15 mins
         await user.save();
 
-        await sendEmail(
-            user.email,
-            "Password Reset OTP",
-            `Your OTP is: ${OTP}. Reset your password using this OTP.`,
-            "Reset password email"
-        );
+        const htmlContent = PASSWORD_RESET_TEMPLATE.replace("{{OTP}}", OTP).replace("{{email}}", user.email);
+        await sendEmail(user.email, "Password Reset OTP", htmlContent, "Reset password email");
 
         return res.status(200).json({ success: true, message: "Password reset OTP sent to registered mail id" });
     } catch (error) {

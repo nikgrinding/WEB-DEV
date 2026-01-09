@@ -1,11 +1,11 @@
 import transporter from "../services/emailService.js";
 
-export const sendEmail = async (to, subject, text, errorContext = "Email") => {
+export const sendEmail = async (to, subject, html, errorContext = "Email") => {
     const mailOptions = {
         from: process.env.EMAIL_FROM,
         to,
         subject,
-        text,
+        html,
     };
 
     try {
