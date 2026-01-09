@@ -9,6 +9,21 @@ const Navbar = () => {
     const navigate = useNavigate();
     const { userData, backendUrl, setUserData, setIsLoggedIn } = useContext(AppContext);
 
+    const sendVerificationOtp = async () => {
+        try {
+            axios.defaults.withCredentials = true;
+            const { data } = await axios.post(backendUrl + "/api/v1/auth/send-verification-otp");
+            if (data.success) {
+                navigate("/verify-email");
+                toast.success(data.message);
+            } else {
+                toast.error(data.message);
+            }
+        } catch (error) {
+            toast.error(error.response?.data?.message || "Email couldn't be sent");
+        }
+    };
+
     const logout = async () => {
         try {
             axios.defaults.withCredentials = true;
@@ -29,7 +44,12 @@ const Navbar = () => {
                     <div className="absolute hidden group-hover:block top-0 right-0 z-10 text-black rounded pt-10">
                         <ul className="list-none m-0 p-2 bg-gray-100 text-sm">
                             {!userData.isAccountVerified && (
-                                <li className="py-1 px-2 hover:bg-gray-200 cursor-pointer">Verify email</li>
+                                <li
+                                    className="py-1 px-2 hover:bg-gray-200 cursor-pointer"
+                                    onClick={sendVerificationOtp}
+                                >
+                                    Verify email
+                                </li>
                             )}
                             <li className="py-1 px-2 hover:bg-gray-200 cursor-pointer pr-10" onClick={logout}>
                                 Logout
